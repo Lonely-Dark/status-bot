@@ -19,7 +19,7 @@ class tor:
 
 
 status=tor()
-status.setToken('db1a2303e51c267cc86f7c96dc93f5e34ce5ab9b99f0157f70469eca1f59e05c27cce65df71b3cc2d957a')
+status.setToken('Token is here')
 
 while True:
 	friends_online=status.method('friends.getOnline', {})
