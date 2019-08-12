@@ -1,5 +1,7 @@
 # Install:
-For install, required modules: random,requests and time. Install python 3.7.3. 
+Install python 3.7.3. 
+
+For install, required modules: random,requests and time
 
 In the bash(or cmd) type: python -m pip install module1 module2 module3
 
