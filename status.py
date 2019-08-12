@@ -37,3 +37,4 @@ while True:
 	time.sleep(3)
 	text='Friends online: '+str(friends_online)+','+'\n'+'Friends offline: '+str(offline_friends)+','+'\n'+'Last application from: '+str(recent_name)+','+'\n'+'Time now: '+time.strftime('%H')+':'+time.strftime('%M')
 	status_finish=status.method('status.set',{'text': text})
+	time.sleep(7)
