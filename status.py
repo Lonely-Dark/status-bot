@@ -20,7 +20,7 @@ class tor:
 
 
 status=tor()
-status.setToken('73ec30b0e9e0053910e2a519930ad960154576d1f300d03eed629406252cda9d01dff3cba2c4e6ce90f97') #type your token here
+status.setToken('token') #type your token here
 
 while True:
 	#Get friends online:
