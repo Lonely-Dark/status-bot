@@ -5,7 +5,7 @@
 [![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 ![GitHub repo size](https://img.shields.io/github/repo-size/Lonely-Dark/status-bot?style=flat-square)
-![GitHub](https://img.shields.io/github/license/Lonely-Dark/Phoenix-Project?style=flat-square)
+![GitHub](https://img.shields.io/github/license/Lonely-Dark/status-bot?style=flat-square)
 
 # Status Bot for VK
 This is a simple bot written in Python that updates the user's VK status message periodically. The bot uses the VK API to authenticate the user and update the status message.
