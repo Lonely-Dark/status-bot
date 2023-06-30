@@ -10,10 +10,8 @@ import time
 
 import aiohttp
 import dotenv
-import helperclass
 from json import loads
-
-import uvloop
+from loguru import logger
 
 
 class MyVk:
@@ -24,7 +22,6 @@ class MyVk:
 
         self.token = dotenv.dotenv_values(f"{os.getcwd()}/.env")['token']
         self.session = aiohttp.ClientSession()
-        self.helper = helperclass.Helper()
 
     async def get_all_friends(self) -> list:
         """
@@ -36,7 +33,7 @@ class MyVk:
         params = {'access_token': self.token, 'v': '5.131'}
         async with self.session.post(url, data=params) as response:
             data = loads(await response.text())
-            self.helper.logger.debug(data)
+            logger.debug(data)
             return data['response']['items']
 
     async def get_all_online_friends(self) -> list:
@@ -49,7 +46,7 @@ class MyVk:
         params = {'access_token': self.token, 'v': '5.131'}
         async with self.session.post(url, data=params) as response:
             data = loads(await response.text())
-            self.helper.logger.debug(data)
+            logger.debug(data)
             return data['response']
 
     async def get_recent_friend(self) -> str:
@@ -62,7 +59,7 @@ class MyVk:
         params = {'access_token': self.token, 'v': '5.131', 'count': 1}
         async with self.session.post(url, data=params) as response:
             data = loads(await response.text())
-            self.helper.logger.debug(data)
+            logger.debug(data)
             return data['response'][0]
 
     async def get_user_info(self, user_id: str) -> str:
@@ -89,7 +86,7 @@ class MyVk:
         params = {'access_token': self.token, 'v': '5.131', 'text': text}
         async with self.session.post(url, data=params) as response:
             data = loads(await response.text())
-            self.helper.logger.debug(data)
+            logger.debug(data)
 
 
 async def main():
@@ -110,11 +107,10 @@ async def main():
 
         text = f"Friends online: {len(online_friends)} \n Last application from: {user_info} \n Today is {time_is_str}"
 
-        status = await my_vk.set_status(text)
+        await my_vk.set_status(text)
 
         await asyncio.sleep(2)
 
 
 if __name__ == '__main__':
-    uvloop.install()
     asyncio.run(main())
